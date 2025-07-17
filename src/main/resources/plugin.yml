@@ -1,5 +1,5 @@
 name: Omni-Moderation-Spigot
-version: '1.0.0'
+version: '1.0.1'
 main: de.MCmoderSD.spigot.omni.main.Main
 api-version: '1.21'
 prefix: Omni-Moderation

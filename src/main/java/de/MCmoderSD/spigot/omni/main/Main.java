@@ -1,6 +1,7 @@
 package de.MCmoderSD.spigot.omni.main;
 
 import de.MCmoderSD.spigot.omni.core.Moderation;
+import de.MCmoderSD.spigot.omni.database.SQL;
 import de.MCmoderSD.tools.GZIP;
 
 import org.bukkit.command.CommandExecutor;
@@ -85,6 +86,13 @@ public final class Main extends JavaPlugin {
     @SuppressWarnings("ResultOfMethodCallIgnored")
     private void deflateDatabase() {
         try {
+
+            // Disconnect from SQL database
+            try {
+                SQL.getInstance().disconnect();
+            } catch (Exception e) {
+                plugin.getLogger().severe("Failed to disconnect from SQL database: " + e.getMessage());
+            }
 
             // Files
             File database = new File(getDataFolder(), "omni.db");
