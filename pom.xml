@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>de.MCmoderSD</groupId>
+    <artifactId>Omni-Moderation-Spigot</artifactId>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
+
+    <name>Omni-Moderation</name>
+    <description>A plugin used for chat Moderation</description>
+
+    <properties>
+        <java.version>21</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <repositories>
+
+        <!-- MCmoderSD.de Nexus Repository -->
+        <repository>
+            <id>Nexus</id>
+            <name>Sonatype Nexus</name>
+            <url>https://mcmodersd.de/nexus/repository/maven-releases/</url>
+        </repository>
+
+        <!-- SpigotMC Repository for Spigot API -->
+        <repository>
+            <id>spigotmc-repo</id>
+            <name>SpigotMC Repository</name>
+            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+        </repository>
+
+        <!-- Sonatype OSS Repository -->
+        <repository>
+            <id>sonatype</id>
+            <name>Sonatype OSS Repository</name>
+            <url>https://oss.sonatype.org/content/groups/public/</url>
+        </repository>
+
+    </repositories>
+
+    <dependencies>
+
+        <!-- JSQL Driver -->
+        <dependency>
+            <groupId>de.MCmoderSD</groupId>
+            <artifactId>JSQL-Driver</artifactId>
+            <version>2.2.1</version>
+        </dependency>
+
+        <!-- Omni-Moderation -->
+        <dependency>
+            <groupId>de.MCmoderSD</groupId>
+            <artifactId>Omni-Moderation</artifactId>
+            <version>1.0.1</version>
+        </dependency>
+
+        <!-- Spigot API Dependency -->
+        <dependency>
+            <groupId>org.spigotmc</groupId>
+            <artifactId>spigot-api</artifactId>
+            <version>1.21-R0.1-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- ZIP Tools -->
+        <dependency>
+            <groupId>de.MCmoderSD</groupId>
+            <artifactId>ZIP-Tools</artifactId>
+            <version>1.0.1</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <defaultGoal>clean package</defaultGoal>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.13.0</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.5.3</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
+
+</project>

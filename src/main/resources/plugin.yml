@@ -1,0 +1,14 @@
+name: Omni-Moderation-Spigot
+version: '1.0.0'
+main: de.MCmoderSD.spigot.omni.main.Main
+api-version: '1.21'
+prefix: Omni-Moderation
+load: STARTUP
+authors: [Seraphin Berger]
+description: A plugin used for chat Moderation
+website: https://www.MCmoderSD.de/
+commands:
+  configure:
+    description: Configure the Omni Moderation API
+  moderation:
+    description: Manage the Omni Moderation API

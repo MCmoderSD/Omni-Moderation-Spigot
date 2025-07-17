@@ -1,0 +1,14 @@
+
+# OpenAI API configuration
+api_key: "your_api_key_here"                # Required
+Project: "your_project_id_here"             # Optional
+Organization: "your_organization_id_here"   # Optional
+
+# Choose one of the following profiles:
+# FULL   = Flagged at any score
+# HIGH   = Flagged at 35% or more
+# MEDIUM = Flagged at 55% or more
+# LOW    = Flagged at 95% or more
+# MINIMAL= Flagged at 99% or more
+# NONE   = Monitoring only, no flags
+Profile: FULL
