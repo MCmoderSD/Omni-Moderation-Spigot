@@ -15,7 +15,7 @@ Unlike traditional filters that block individual keywords, Omni-Moderation moder
 
 * It does **not block words** directly, but rather evaluates the **meaning and intent** of the full message.
 * This allows the AI to distinguish between truly harmful content and acceptable expressions that might include sensitive terms.
-* For example, it can detect toxic intent even if the message is disguised as `N1****` instead of `Ni****`, while allowing non-offensive uses like `I love all Ni****`.
+* For example, it can detect toxic intent even if the message is disguised as `N1****` instead of `Ni****`, while allowing non-offensive uses like `I love all Ni*****`.
 
 This makes the system **harder to bypass** using common tricks like character substitution, but also introduces some limitations (see Disclaimer).
 
@@ -68,17 +68,20 @@ Profile: FULL
 Select how strictly content is flagged:
 
 * `FULL`    – Flag anything suspicious
-* `HIGH`    – 35%+ flagged
-* `MEDIUM`  – 55%+
-* `LOW`     – 95%+
-* `MINIMAL` – 99%+
+* `HIGH`    – 35%
+* `MEDIUM`  – 55%
+* `LOW`     – 95%
+* `MINIMAL` – 99%
 * `NONE`    – Only monitors, does not block
+
+**Note:** The percentage thresholds indicate the likelihood of a message being inappropriate. <br>
+The higher the threshold, the fewer messages are flagged.
 
 > **Tip:** After using `NONE`, reset the database to avoid whitelisting undesired messages.
 
 ## Commands
 
-Only accessible by moderators:
+Only accessible by operators:
 
 * `/moderation status` – Show plugin status
 * `/moderation whitelist <content>` – Whitelist specific text
@@ -93,7 +96,7 @@ Only accessible by moderators:
 Omni-Moderation is a solid **first line of defense** for chat moderation, but it is **not a complete replacement** for human review or broader server moderation policies.
 
 * It relies on OpenAI’s context-aware moderation model.
-* This model can sometimes allow positively framed but inappropriate messages like `I love all Ni****`, which are not flagged.
+* This model can sometimes allow positively framed but inappropriate messages like `I love all Ni*****`, which are not flagged.
 * At the same time, it is robust against obfuscation tricks like `N1****`, recognizing toxic intent even when the text is masked.
 * These limitations are rooted in the OpenAI moderation model and **cannot be fixed by this plugin**.
 
